@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="login.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/fav.PNG" type="image/png" sizes="16x16">
 
@@ -78,35 +79,42 @@
                 <form>
                     <div class="form-group mt-3">
                         <label>Email address</label>
-                        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                        <input type="email" class="form-control" onchange="validateEmail()" aria-describedby="emailHelp" id="emailField" placeholder="Enter email">
+                        <small id="emailFieldFeedback"></small>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" id="passwordField" onchange="validatePassword()" Placeholder=" Password ">
+                        <small id="passFeedback"></small>
+
                     </div>
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label>Confirm Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" id="confirmPassword" onchange="confirmPass()" placeholder="Confirm Password ">
+                        <small id="confirmPassFeedback"></small>
+
                     </div>
-                    <div class="form-group">
+                    <div class="form-group ">
                         <label> Name</label>
-                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Name">
+                        <input type="text " class="form-control " aria-describedby="emailHelp " placeholder="Enter Name ">
                     </div>
-                    <div class="form-group">
-                        <label> DOB</label>
-                        <input type="date" class="form-control" aria-describedby="emailHelp" placeholder="Date of Birth">
+                    <div class="form-group ">
+                        <label> Phone No</label>
+                        <input type="number " class="form-control " id="phoneNo" aria-describedby="emailHelp " onchange="validatePhone()" placeholder="Phone Number ">
+                        <small id="phoneNoFeedback"></small>
+
                     </div>
                     <div class="text-center ">
-                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <button type="submit " class="btn btn-primary" onclick="passwordFormatCheck()">Sign In</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">Copyright &copy; Abshar P</span>
+    <footer class="footer ">
+        <div class="container ">
+            <span class="text-muted ">Copyright &copy; Abshar P</span>
         </div>
     </footer>
 
