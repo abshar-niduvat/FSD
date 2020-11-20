@@ -51,10 +51,12 @@ function confirmPass() {
 function validatePassword() {
     let passwordField = document.getElementById("passwordField");
     let passwordFieldFeedback = document.getElementById("passFeedback");
-    let regexp = /^([0-9]{3})([\s]{0,1})([0-9]{3})([\s]{0,1})([0-9]{4})$/;
-
-
-    if (regexp.test(PhoneNo.value)) {
+    console.log(passwordField.value.length);
+    let regexp = /^([A-Za-z0-9]{8})$/;
+    if (
+        passwordField.value.toString().match(regexp) &&
+        passwordField.value.length > 10
+    ) {
         passwordFieldFeedback.innerHTML = "Strong";
         passwordFieldFeedback.style.color = "green";
         return true;
@@ -74,18 +76,27 @@ function passwordFormatCheck() {
     let Upper = /^([A-Z]+)$/;
     let lower = /^([a-z]+)$/;
     let number = /^([0-9]+)$/;
-    if (Upper.test(passwordField.value)) {
-        if (lower.test(passwordField.value)) {
-            if (number.test(passwordField.value)) {
-                alert("Password is of Fine Format")
-
+    if (passwordField.value.toString().match(Upper)) {
+        if (passwordField.value.toString().match(lower)) {
+            if (passwordField.value.toString().match(number)) {
+                alert("Password is of Fine Format");
+                return true;
             } else {
-                alert("Password is not of  Preferred Format")
+                alert(
+                    "Password is not of  Preferred Format, Atleast One Number Needed"
+                );
+                return false;
             }
         } else {
-            alert("Password is not of Preferred Format")
+            alert(
+                "Password is not of Preferred Format, Atleast one Small letter needed"
+            );
+            return false;
         }
     } else {
-        alert("Password is not of Preferred Format")
+        alert(
+            "Password is not of Preferred Format, Atleast One Capital letter needed "
+        );
+        return false;
     }
 }
