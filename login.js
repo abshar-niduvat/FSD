@@ -73,29 +73,21 @@ function validatePassword() {
 
 function passwordFormatCheck() {
     let passwordField = document.getElementById("passwordField");
-    let Upper = /^([A-Z]+)$/;
-    let lower = /^([a-z]+)$/;
-    let number = /^([0-9]+)$/;
-    if (passwordField.value.toString().match(Upper)) {
-        if (passwordField.value.toString().match(lower)) {
-            if (passwordField.value.toString().match(number)) {
-                alert("Password is of Fine Format");
-                return true;
-            } else {
-                alert(
-                    "Password is not of  Preferred Format, Atleast One Number Needed"
-                );
-                return false;
-            }
-        } else {
-            alert(
-                "Password is not of Preferred Format, Atleast one Small letter needed"
-            );
-            return false;
-        }
+    let Upper = /([A-Z])/;
+    let lower = /([a-z])/;
+    let number = /([0-9])/;
+    console.log(passwordField.value);
+    if (
+        passwordField.value.match(Upper) &&
+        passwordField.value.match(lower) &&
+        passwordField.value.match(number) &&
+        passwordField.value.length > 8
+    ) {
+        alert("Password is of Preferred Format, Now You are In");
+        return true;
     } else {
         alert(
-            "Password is not of Preferred Format, Atleast One Capital letter needed "
+            "Password is not of Preferred Format, Atleast One Capital letter, Atleast One Small letter, Atleast One Number is needed and length should be greater than 8."
         );
         return false;
     }
